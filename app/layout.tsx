@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import './globals.css'; // Si tu as un fichier CSS global
 
 export const metadata: Metadata = {
   title: 'AURA - Intelligence Hub',
@@ -13,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body style={{ margin: 0, padding: 0, boxSizing: 'border-box' }}>
+        {children}
+      </body>
     </html>
   );
 }
