@@ -11,12 +11,18 @@ export async function POST(req: Request) {
 
     let selectedModel;
 
-    // Sélection du modèle
     switch (modelId) {
-      case 'gpt-4o': selectedModel = openai('gpt-4o'); break;
-      case 'gemini-1.5-pro': selectedModel = google('models/gemini-1.5-pro-latest'); break;
-      case 'claude-3-5-sonnet': selectedModel = anthropic('claude-3-5-sonnet-20240620'); break;
-      default: selectedModel = openai('gpt-4o');
+      case 'gpt-4o': 
+        selectedModel = openai('gpt-4o'); 
+        break;
+      case 'gemini-1.5-pro': 
+        selectedModel = google('models/gemini-1.5-pro-latest'); 
+        break;
+      case 'claude-3-5-sonnet': 
+        selectedModel = anthropic('claude-3-5-sonnet-20240620'); 
+        break;
+      default: 
+        selectedModel = openai('gpt-4o');
     }
 
     const result = await streamText({
@@ -24,9 +30,10 @@ export async function POST(req: Request) {
       messages,
     });
 
-    return result.toDataStreamResponse();
+    // Version standard et universelle pour renvoyer le flux textuel
+    return result.toTextStreamResponse();
   } catch (error) {
     console.error(error);
-    return new Response('Erreur de configuration serveur', { status: 500 });
+    return new Response(JSON.stringify({ error: 'Erreur serveur interne' }), { status: 500 });
   }
-      }
+}
