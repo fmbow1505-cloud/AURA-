@@ -12,6 +12,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ai": "latest",
+    "@ai-sdk/react": "latest",
     "@ai-sdk/openai": "latest",
     "@ai-sdk/google": "latest",
     "@ai-sdk/anthropic": "latest",
