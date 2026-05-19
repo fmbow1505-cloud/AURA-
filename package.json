@@ -11,12 +11,10 @@
     "next": "14.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ai": "latest",
-    "@ai-sdk/react": "latest",
+    "ai": "3.1.32",
     "@ai-sdk/openai": "latest",
     "@ai-sdk/google": "latest",
-    "@ai-sdk/anthropic": "latest",
-    "lucide-react": "latest"
+    "@ai-sdk/anthropic": "latest"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
