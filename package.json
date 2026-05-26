@@ -15,7 +15,8 @@
     "@ai-sdk/react": "0.0.70",
     "@ai-sdk/openai": "0.0.66",
     "@ai-sdk/google": "0.0.52",
-    "@ai-sdk/anthropic": "0.0.51"
+    "@ai-sdk/anthropic": "0.0.51",
+    "next-auth": "^4.24.7"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
