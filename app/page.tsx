@@ -1,200 +1,163 @@
 'use client';
 
-import { useChat } from '@ai-sdk/react';
-import { useState, useRef, useEffect } from 'react';
-
-type Agent = 'openai' | 'google' | 'anthropic';
-
-const agentConfig = {
-  openai:    { label: 'GPT-4',   color: '#10a37f', bg: '#0d1117' },
-  google:    { label: 'Gemini',  color: '#4285f4', bg: '#0d1117' },
-  anthropic: { label: 'Claude',  color: '#d97757', bg: '#0d1117' },
-};
+import Link from 'next/link';
 
 export default function Home() {
-  const [agent, setAgent] = useState<Agent>('openai');
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: `/api/chat/${agent}`,
-  });
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
-  const activeColor = agentConfig[agent].color;
-
   return (
     <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100dvh',
-      background: '#0d1117',
-      color: '#e6edf3',
-      fontFamily: 'system-ui, sans-serif',
+      minHeight: '100vh',
+      background: '#0a0a0a',
+      color: '#fff',
+      fontFamily: 'Georgia, serif',
     }}>
 
-      {/* Header */}
-      <div style={{
-        padding: '16px 20px',
-        borderBottom: '1px solid #21262d',
+      {/* Navbar */}
+      <nav style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        background: '#161b22',
+        padding: '16px 24px',
+        borderBottom: '1px solid #222',
+        background: '#0a0a0a',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
       }}>
-        <div>
-          <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: '#e6edf3' }}>
-            ✦ AURA
-          </h1>
-          <p style={{ margin: 0, fontSize: 12, color: '#8b949e' }}>Multi-Agent AI</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 20 }}>✦</span>
+          <span style={{ fontWeight: 700, fontSize: 18, color: '#f5c842', letterSpacing: 2 }}>AURA</span>
+        </div>
+        <div style={{ display: 'flex', gap: 20, fontSize: 13, color: '#aaa' }}>
+          <a href="#" style={{ color: '#aaa', textDecoration: 'none' }}>Fonctionnalités</a>
+          <a href="#" style={{ color: '#aaa', textDecoration: 'none' }}>Tarifs</a>
+          <a href="#" style={{ color: '#aaa', textDecoration: 'none' }}>Réseau mondial</a>
+          <a href="#" style={{ color: '#aaa', textDecoration: 'none' }}>Contact</a>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span style={{ fontSize: 13, color: '#aaa' }}>🇪🇺 EUR</span>
+          <a href="/chat" style={{
+            padding: '8px 16px',
+            borderRadius: 8,
+            background: '#f5c842',
+            color: '#0a0a0a',
+            fontSize: 13,
+            fontWeight: 700,
+            textDecoration: 'none',
+          }}>Se connecter</a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '100px 24px 60px',
+        minHeight: '80vh',
+      }}>
+
+        {/* Badge */}
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
+          padding: '6px 14px',
+          borderRadius: 20,
+          border: '1px solid #333',
+          background: '#111',
+          fontSize: 12,
+          color: '#f5c842',
+          marginBottom: 40,
+        }}>
+          ✦ Expérience IA Premium
         </div>
 
-        {/* Agent selector */}
-        <div style={{ display: 'flex', gap: 6 }}>
-          {(Object.keys(agentConfig) as Agent[]).map((a) => (
-            <button
-              key={a}
-              onClick={() => setAgent(a)}
-              style={{
-                padding: '6px 12px',
-                borderRadius: 20,
-                border: `1px solid ${agent === a ? agentConfig[a].color : '#30363d'}`,
-                background: agent === a ? agentConfig[a].color + '22' : 'transparent',
-                color: agent === a ? agentConfig[a].color : '#8b949e',
-                fontSize: 12,
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              {agentConfig[a].label}
-            </button>
+        {/* Title */}
+        <h1 style={{
+          fontSize: 52,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          lineHeight: 1.1,
+          color: '#fff',
+        }}>
+          L'avenir de l'IA
+        </h1>
+
+        {/* Gold highlight */}
+        <div style={{
+          background: '#f5c842',
+          padding: '8px 32px',
+          borderRadius: 4,
+          marginBottom: 32,
+        }}>
+          <span style={{
+            fontSize: 44,
+            fontWeight: 700,
+            color: '#b8860b',
+            fontStyle: 'italic',
+          }}>
+            Est-ce ici ?
+          </span>
+        </div>
+
+        {/* Subtitle */}
+        <p style={{
+          fontSize: 15,
+          color: '#888',
+          maxWidth: 420,
+          lineHeight: 1.7,
+          margin: '0 0 40px',
+        }}>
+          Découvrez GPT-4, Claude et Gemini au sein d'une interface élégante.
+          AURA offre des capacités d'IA de pointe d'une sophistication inégalée.
+        </p>
+
+        {/* CTA Buttons */}
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 80 }}>
+          <a href="/chat" style={{
+            padding: '12px 24px',
+            borderRadius: 8,
+            border: '1px solid #f5c842',
+            color: '#f5c842',
+            fontSize: 14,
+            fontWeight: 600,
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}>
+            Essai gratuit →
+          </a>
+          <a href="#features" style={{
+            fontSize: 14,
+            color: '#aaa',
+            textDecoration: 'none',
+          }}>
+            Explorez les fonctionnalités
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div style={{
+          display: 'flex',
+          gap: 48,
+          justifyContent: 'center',
+        }}>
+          {[
+            { icon: '⚡', value: '99,9%', label: 'SLA de disponibilité' },
+            { icon: '🛡️', value: '100%', label: 'Sécurisé' },
+            { icon: '🌐', value: '3', label: 'Serveurs mondiaux' },
+          ].map((stat) => (
+            <div key={stat.label} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 24, marginBottom: 6 }}>{stat.icon}</div>
+              <div style={{ fontSize: 28, fontWeight: 700, color: '#f5c842' }}>{stat.value}</div>
+              <div style={{ fontSize: 12, color: '#666', marginTop: 4 }}>{stat.label}</div>
+            </div>
           ))}
         </div>
       </div>
-
-      {/* Messages */}
-      <div style={{
-        flex: 1,
-        overflowY: 'auto',
-        padding: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 16,
-      }}>
-        {messages.length === 0 && (
-          <div style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#8b949e',
-            textAlign: 'center',
-            paddingTop: 60,
-          }}>
-            <div style={{ fontSize: 48, marginBottom: 16 }}>✦</div>
-            <p style={{ fontSize: 18, fontWeight: 600, color: '#e6edf3', margin: '0 0 8px' }}>
-              Bonjour, je suis AURA
-            </p>
-            <p style={{ fontSize: 14, margin: 0 }}>
-              Sélectionne un agent et envoie ton premier message
-            </p>
-          </div>
-        )}
-
-        {messages.map((m) => (
-          <div
-            key={m.id}
-            style={{
-              display: 'flex',
-              justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start',
-            }}
-          >
-            <div style={{
-              maxWidth: '75%',
-              padding: '10px 14px',
-              borderRadius: m.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-              background: m.role === 'user' ? activeColor : '#161b22',
-              border: m.role === 'user' ? 'none' : '1px solid #21262d',
-              color: '#e6edf3',
-              fontSize: 14,
-              lineHeight: 1.6,
-            }}>
-              {m.role === 'assistant' && (
-                <p style={{ margin: '0 0 4px', fontSize: 11, color: activeColor, fontWeight: 600 }}>
-                  {agentConfig[agent].label}
-                </p>
-              )}
-              {m.content}
-            </div>
-          </div>
-        ))}
-
-        {isLoading && (
-          <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{
-              padding: '10px 16px',
-              borderRadius: '18px 18px 18px 4px',
-              background: '#161b22',
-              border: '1px solid #21262d',
-              color: '#8b949e',
-              fontSize: 14,
-            }}>
-              ···
-            </div>
-          </div>
-        )}
-
-        <div ref={bottomRef} />
-      </div>
-
-      {/* Input */}
-      <div style={{
-        padding: '12px 16px',
-        borderTop: '1px solid #21262d',
-        background: '#161b22',
-      }}>
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: 'flex', gap: 8, alignItems: 'center' }}
-        >
-          <input
-            value={input}
-            onChange={handleInputChange}
-            placeholder={`Message ${agentConfig[agent].label}...`}
-            style={{
-              flex: 1,
-              padding: '10px 16px',
-              borderRadius: 24,
-              border: '1px solid #30363d',
-              background: '#0d1117',
-              color: '#e6edf3',
-              fontSize: 14,
-              outline: 'none',
-            }}
-          />
-          <button
-            type="submit"
-            disabled={isLoading || !input.trim()}
-            style={{
-              padding: '10px 18px',
-              borderRadius: 24,
-              border: 'none',
-              background: activeColor,
-              color: '#fff',
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: 'pointer',
-              opacity: isLoading || !input.trim() ? 0.5 : 1,
-            }}
-          >
-            ↑
-          </button>
-        </form>
-      </div>
     </div>
   );
-          }
+      }
