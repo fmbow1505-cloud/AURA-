@@ -44,6 +44,7 @@ const PLANS = [
 export default function LandingPage() {
   const [currency, setCurrency] = useState<Currency>('EUR');
   const router = useRouter();
+  const gold = '#D4AF37';
 
   const formatPrice = (eur: number) => {
     const price = Math.round(eur * RATES[currency]);
@@ -62,14 +63,14 @@ export default function LandingPage() {
         backdropFilter: 'blur(10px)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 22, color: '#D4AF37' }}>✦</span>
-          <span style={{ fontWeight: 700, fontSize: 20, color: '#D4AF37', letterSpacing: 3 }}>AURA</span>
+          <span style={{ fontSize: 22, color: gold }}>✦</span>
+          <span style={{ fontWeight: 700, fontSize: 20, color: gold, letterSpacing: 3 }}>AURA</span>
         </div>
         <div style={{ display: 'flex', gap: 24, fontSize: 13, color: '#888' }}>
           {['Fonctionnalités', 'Tarifs', 'Réseau mondial', 'Contact'].map(item => (
             <a key={item} href={`#${item.toLowerCase()}`}
               style={{ color: '#888', textDecoration: 'none' }}
-              onMouseOver={e => (e.currentTarget.style.color = '#D4AF37')}
+              onMouseOver={e => (e.currentTarget.style.color = gold)}
               onMouseOut={e => (e.currentTarget.style.color = '#888')}
             >{item}</a>
           ))}
@@ -79,7 +80,7 @@ export default function LandingPage() {
             value={currency}
             onChange={e => setCurrency(e.target.value as Currency)}
             style={{
-              background: '#111', color: '#D4AF37', border: '1px solid #D4AF37',
+              background: '#111', color: gold, border: `1px solid ${gold}`,
               borderRadius: 6, padding: '4px 8px', fontSize: 12, cursor: 'pointer',
             }}
           >
@@ -87,9 +88,9 @@ export default function LandingPage() {
             <option value="USD">🇺🇸 USD</option>
             <option value="FCFA">🌍 FCFA</option>
           </select>
-          <button onClick={() => router.push('/chat')} style={{
+          <button onClick={() => router.push('/login')} style={{
             padding: '8px 18px', borderRadius: 8,
-            background: '#D4AF37', color: '#000',
+            background: gold, color: '#000',
             border: 'none', fontWeight: 700, fontSize: 13, cursor: 'pointer',
           }}>Se connecter</button>
         </div>
@@ -104,36 +105,41 @@ export default function LandingPage() {
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
           padding: '6px 16px', borderRadius: 20,
-          border: '1px solid #D4AF37', background: 'rgba(212,175,55,0.08)',
-          fontSize: 12, color: '#D4AF37', marginBottom: 40,
+          border: `1px solid ${gold}`, background: 'rgba(212,175,55,0.08)',
+          fontSize: 12, color: gold, marginBottom: 40,
         }}>
           ✦ Expérience IA Premium
         </div>
+
         <h1 style={{ fontSize: 56, fontWeight: 700, margin: '0 0 16px', lineHeight: 1.1 }}>
           L'avenir de l'IA
         </h1>
+
         <div style={{
-          background: '#D4AF37', padding: '10px 40px',
+          background: gold, padding: '10px 40px',
           borderRadius: 4, marginBottom: 32,
         }}>
           <span style={{ fontSize: 48, fontWeight: 700, color: '#7a5c00', fontStyle: 'italic' }}>
             Est-ce ici ?
           </span>
         </div>
+
         <p style={{ fontSize: 16, color: '#888', maxWidth: 480, lineHeight: 1.8, margin: '0 0 40px' }}>
           Découvrez GPT-4, Claude et Gemini au sein d'une interface élégante.
           AURA offre des capacités d'IA de pointe d'une sophistication inégalée.
         </p>
+
         <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 80 }}>
-          <button onClick={() => router.push('/chat')} style={{
+          <button onClick={() => router.push('/login')} style={{
             padding: '12px 28px', borderRadius: 8,
-            border: '1px solid #D4AF37', color: '#D4AF37',
+            border: `1px solid ${gold}`, color: gold,
             background: 'transparent', fontSize: 14, fontWeight: 600, cursor: 'pointer',
           }}>Essai gratuit →</button>
           <a href="#tarifs" style={{ fontSize: 14, color: '#888', textDecoration: 'none' }}>
             Explorez les fonctionnalités
           </a>
         </div>
+
         <div style={{ display: 'flex', gap: 60 }}>
           {[
             { icon: '⚡', value: '99,9%', label: 'SLA de disponibilité' },
@@ -142,7 +148,7 @@ export default function LandingPage() {
           ].map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 28, marginBottom: 6 }}>{s.icon}</div>
-              <div style={{ fontSize: 32, fontWeight: 700, color: '#D4AF37' }}>{s.value}</div>
+              <div style={{ fontSize: 32, fontWeight: 700, color: gold }}>{s.value}</div>
               <div style={{ fontSize: 12, color: '#555', marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
@@ -151,41 +157,41 @@ export default function LandingPage() {
 
       {/* TARIFS */}
       <section id="tarifs" style={{ padding: '80px 24px', maxWidth: 1100, margin: '0 auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: 36, color: '#D4AF37', marginBottom: 8 }}>Nos Tarifs</h2>
+        <h2 style={{ textAlign: 'center', fontSize: 36, color: gold, marginBottom: 8 }}>Nos Tarifs</h2>
         <p style={{ textAlign: 'center', color: '#666', marginBottom: 48 }}>Choisissez le plan qui vous correspond</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
           {PLANS.map(plan => (
             <div key={plan.id} style={{
               flex: '1 1 180px', maxWidth: 200,
               background: '#0f1420',
-              border: `1px solid ${plan.highlight ? '#D4AF37' : '#1a1a2e'}`,
+              border: `1px solid ${plan.highlight ? gold : '#1a1a2e'}`,
               borderRadius: 16, padding: '24px 16px',
               display: 'flex', flexDirection: 'column', gap: 12,
-              boxShadow: plan.highlight ? '0 0 24px rgba(212,175,55,0.2)' : 'none',
+              boxShadow: plan.highlight ? `0 0 24px ${gold}33` : 'none',
               position: 'relative',
             }}>
               {plan.highlight && (
                 <div style={{
                   position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
-                  background: '#D4AF37', color: '#000', fontSize: 10, fontWeight: 700,
-                  padding: '3px 12px', borderRadius: 20,
+                  background: gold, color: '#000', fontSize: 10, fontWeight: 700,
+                  padding: '3px 12px', borderRadius: 20, whiteSpace: 'nowrap',
                 }}>⭐ POPULAIRE</div>
               )}
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#D4AF37', letterSpacing: 2 }}>{plan.name}</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: gold, letterSpacing: 2 }}>{plan.name}</div>
               <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>{formatPrice(plan.priceEUR)}</div>
               <div style={{ fontSize: 11, color: '#555' }}>{plan.description}</div>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6 }}>
                 {plan.features.map(f => (
                   <li key={f} style={{ fontSize: 11, color: '#888', display: 'flex', gap: 6, alignItems: 'flex-start' }}>
-                    <span style={{ color: '#D4AF37' }}>✓</span> {f}
+                    <span style={{ color: gold }}>✓</span> {f}
                   </li>
                 ))}
               </ul>
-              <button onClick={() => router.push('/chat')} style={{
+              <button onClick={() => router.push('/login')} style={{
                 marginTop: 'auto', padding: '10px',
-                borderRadius: 8, border: `1px solid ${plan.highlight ? '#D4AF37' : '#333'}`,
-                background: plan.highlight ? '#D4AF37' : 'transparent',
-                color: plan.highlight ? '#000' : '#D4AF37',
+                borderRadius: 8, border: `1px solid ${plan.highlight ? gold : '#333'}`,
+                background: plan.highlight ? gold : 'transparent',
+                color: plan.highlight ? '#000' : gold,
                 fontSize: 12, fontWeight: 700, cursor: 'pointer',
               }}>
                 {plan.priceEUR === 0 ? 'Commencer' : 'Choisir ce plan'}
@@ -200,14 +206,14 @@ export default function LandingPage() {
         padding: '80px 24px', textAlign: 'center',
         borderTop: '1px solid #1a1a2e',
       }}>
-        <h2 style={{ fontSize: 32, color: '#D4AF37', marginBottom: 8 }}>Connexion sécurisée</h2>
+        <h2 style={{ fontSize: 32, color: gold, marginBottom: 8 }}>Connexion sécurisée</h2>
         <p style={{ color: '#666', marginBottom: 40 }}>Authentifiez-vous avec votre compte existant</p>
-        <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           {[
             { label: 'Continuer avec Google', icon: '🔵' },
             { label: 'Continuer avec GitHub', icon: '⚫' },
           ].map(btn => (
-            <button key={btn.label} style={{
+            <button key={btn.label} onClick={() => router.push('/login')} style={{
               padding: '12px 24px', borderRadius: 10,
               border: '1px solid #333', background: '#111',
               color: '#fff', fontSize: 14, cursor: 'pointer',
@@ -222,11 +228,11 @@ export default function LandingPage() {
       {/* PAIEMENT */}
       <section style={{ padding: '60px 24px', textAlign: 'center', borderTop: '1px solid #1a1a2e' }}>
         <p style={{ color: '#555', fontSize: 13, marginBottom: 20 }}>Moyens de paiement acceptés</p>
-        <div style={{ display: 'flex', gap: 24, justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 24, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
           {['PayPal', 'Orange Money', 'Wave'].map(p => (
             <div key={p} style={{
               padding: '8px 20px', borderRadius: 8,
-              border: '1px solid #222', background: '#111',
+              border: `1px solid ${gold}33`, background: '#111',
               color: '#888', fontSize: 13,
             }}>{p}</div>
           ))}
@@ -240,6 +246,7 @@ export default function LandingPage() {
       }}>
         © 2025 AURA — Tous droits réservés
       </footer>
+
     </div>
   );
-      }
+          }
