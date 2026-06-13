@@ -138,6 +138,17 @@ const FEATURES_TEXT: Record<string, Record<Lang, { title: string; desc: string }
 
 const PLANS = [
   {
+    id: 'free', name: 'Free', priceEUR: 0, icon: '✦', accent: '#666',
+    desc: { fr: 'Pour découvrir AURA gratuitement', en: 'Try AURA for free', es: 'Prueba AURA gratis', ar: 'جرب AURA مجانًا', pt: 'Experimente o AURA gratuitamente' },
+    features: {
+      fr: ['3 essais gratuits', 'Accès au modèle GPT-4 de base', 'Interface de chat standard', 'Support communautaire'],
+      en: ['3 free trials', 'Basic GPT-4 model access', 'Standard chat interface', 'Community support'],
+      es: ['3 pruebas gratuitas', 'Acceso al modelo GPT-4 básico', 'Interfaz de chat estándar', 'Soporte comunitario'],
+      ar: ['3 محاولات مجانية', 'الوصول إلى نموذج GPT-4 الأساسي', 'واجهة محادثة قياسية', 'دعم المجتمع'],
+      pt: ['3 testes gratuitos', 'Acesso ao modelo GPT-4 básico', 'Interface de chat padrão', 'Suporte da comunidade'],
+    },
+  },
+  {
     id: 'starter', name: 'Starter', priceEUR: 50, icon: '◇', accent: '#888',
     desc: { fr: "Idéal pour découvrir les capacités IA", en: 'Perfect for individuals exploring AI capabilities', es: 'Perfecto para explorar las capacidades de la IA', ar: 'مثالي للأفراد الذين يستكشفون قدرات الذكاء الاصطناعي', pt: 'Perfeito para explorar as capacidades de IA' },
     features: {
@@ -184,6 +195,7 @@ const PLANS = [
 ];
 
 const PRICE_LABELS: Record<string, Record<Lang, string>> = {
+  free: { fr: 'Commencer gratuitement', en: 'Start for Free', es: 'Empezar gratis', ar: 'ابدأ مجانًا', pt: 'Começar gratuitamente' },
   starter: { fr: 'Choisir Starter', en: 'Choose Starter', es: 'Elegir Starter', ar: 'اختر Starter', pt: 'Escolher Starter' },
   pro: { fr: 'Choisir Pro', en: 'Choose Pro', es: 'Elegir Pro', ar: 'اختر Pro', pt: 'Escolher Pro' },
   business: { fr: 'Choisir Business', en: 'Choose Business', es: 'Elegir Business', ar: 'اختر Business', pt: 'Escolher Business' },
@@ -315,7 +327,7 @@ export default function LandingPage() {
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
           {PLANS.map(plan => (
             <div key={plan.id} style={{
-              flex: '1 1 220px', maxWidth: 260, background: '#0f1420',
+              flex: '1 1 200px', maxWidth: 230, background: '#0f1420',
               border: `1px solid ${plan.highlight ? gold : '#1a1a2e'}`,
               borderTop: `3px solid ${plan.accent}`,
               borderRadius: 16, padding: '24px 20px',
