@@ -107,14 +107,14 @@ const FEATURES_TEXT: Record<string, Record<Lang, { title: string; desc: string }
     pt: { title: 'Rede global', desc: 'Servidores em Dakar, Paris e Nova York para latência mínima em todo o mundo.' },
   },
   conversations: {
-    fr: { title: 'Conversations naturelles', desc: 'Mémoire contextuelle et dialogue naturel pour des interactions semblables à celles d\'un humain.' },
+    fr: { title: 'Conversations naturelles', desc: "Mémoire contextuelle et dialogue naturel pour des interactions semblables à celles d'un humain." },
     en: { title: 'Natural Conversations', desc: 'Contextual memory and natural dialogue for human-like interactions.' },
     es: { title: 'Conversaciones naturales', desc: 'Memoria contextual y diálogo natural para interacciones similares a las humanas.' },
     ar: { title: 'محادثات طبيعية', desc: 'ذاكرة سياقية وحوار طبيعي لتفاعلات شبيهة بالبشر.' },
     pt: { title: 'Conversas naturais', desc: 'Memória contextual e diálogo natural para interações semelhantes às humanas.' },
   },
   devApi: {
-    fr: { title: 'API développeur', desc: "Accès API REST complet avec documentation détaillée et SDKs." },
+    fr: { title: 'API développeur', desc: 'Accès API REST complet avec documentation détaillée et SDKs.' },
     en: { title: 'Developer API', desc: 'Full REST API access with comprehensive documentation and SDKs.' },
     es: { title: 'API para desarrolladores', desc: 'Acceso completo a la API REST con documentación detallada y SDKs.' },
     ar: { title: 'واجهة برمجة للمطورين', desc: 'وصول كامل إلى REST API مع وثائق شاملة وحزم SDK.' },
@@ -150,7 +150,7 @@ const PLANS = [
   },
   {
     id: 'starter', name: 'Starter', priceEUR: 50, icon: '◇', accent: '#888',
-    desc: { fr: "Idéal pour découvrir les capacités IA", en: 'Perfect for individuals exploring AI capabilities', es: 'Perfecto para explorar las capacidades de la IA', ar: 'مثالي للأفراد الذين يستكشفون قدرات الذكاء الاصطناعي', pt: 'Perfeito para explorar as capacidades de IA' },
+    desc: { fr: 'Idéal pour découvrir les capacités IA', en: 'Perfect for individuals exploring AI capabilities', es: 'Perfecto para explorar las capacidades de la IA', ar: 'مثالي للأفراد الذين يستكشفون قدرات الذكاء الاصطناعي', pt: 'Perfeito para explorar as capacidades de IA' },
     features: {
       fr: ['25 000 jetons IA / mois', 'Accès GPT-4 et Claude', 'Interface de chat premium', 'Support par email', '10 conversations historiques', 'Analytique de base'],
       en: ['25,000 AI tokens/month', 'GPT-4 & Claude access', 'Premium chat interface', 'Email support', '10 conversation history', 'Basic analytics'],
@@ -161,50 +161,50 @@ const PLANS = [
   },
   {
     id: 'pro', name: 'Pro', priceEUR: 150, icon: '⬢', accent: gold, highlight: true,
-    desc: { fr: 'Pour les pros qui exigent l\'excellence', en: 'For professionals who demand excellence', es: 'Para profesionales que exigen excelencia', ar: 'للمحترفين الذين يطلبون التميز', pt: 'Para profissionais que exigem excelência' },
+    desc: { fr: "Pour les pros qui exigent l'excellence", en: 'For professionals who demand excellence', es: 'Para profesionales que exigen excelencia', ar: 'للمحترفين الذين يطلبون التميز', pt: 'Para profissionais que exigem excelência' },
     features: {
-      fr: ['150 000 jetons IA / mois', 'Accès GPT-4, Claude et Gemini', 'Traitement prioritaire', 'Historique de conversation illimité', 'Accès complet à l\'API', 'Support prioritaire 24/7', 'Agents personnalisés (×3)', 'Analytique avancée'],
-      en: ['150,000 AI tokens/month', 'GPT-4, Claude & Gemini access', 'Priority processing', 'Unlimited conversation history', 'Full API access', 'Priority support 24/7', 'Custom agents (×3)', 'Advanced analytics'],
-      es: ['150,000 tokens IA/mes', 'Acceso a GPT-4, Claude y Gemini', 'Procesamiento prioritario', 'Historial de conversación ilimitado', 'Acceso completo a la API', 'Soporte prioritario 24/7', 'Agentes personalizados (×3)', 'Análisis avanzado'],
-      ar: ['150,000 رمز ذكاء اصطناعي/شهر', 'الوصول إلى GPT-4 و Claude و Gemini', 'معالجة ذات أولوية', 'سجل محادثات غير محدود', 'وصول كامل إلى API', 'دعم ذو أولوية على مدار الساعة', 'وكلاء مخصصون (×3)', 'تحليلات متقدمة'],
-      pt: ['150.000 tokens de IA/mês', 'Acesso a GPT-4, Claude e Gemini', 'Processamento prioritário', 'Histórico de conversas ilimitado', 'Acesso total à API', 'Suporte prioritário 24/7', 'Agentes personalizados (×3)', 'Análises avançadas'],
+      fr: ['150 000 jetons IA / mois', 'Accès GPT-4, Claude et Gemini', 'Traitement prioritaire', 'Historique illimité', 'Accès complet API', 'Support 24/7', 'Agents ×3', 'Analytique avancée'],
+      en: ['150,000 AI tokens/month', 'GPT-4, Claude & Gemini', 'Priority processing', 'Unlimited history', 'Full API access', 'Support 24/7', 'Custom agents ×3', 'Advanced analytics'],
+      es: ['150,000 tokens/mes', 'GPT-4, Claude y Gemini', 'Procesamiento prioritario', 'Historial ilimitado', 'API completa', 'Soporte 24/7', 'Agentes ×3', 'Análisis avanzado'],
+      ar: ['150,000 رمز/شهر', 'GPT-4 و Claude و Gemini', 'معالجة ذات أولوية', 'سجل غير محدود', 'وصول كامل API', 'دعم 24/7', 'وكلاء ×3', 'تحليلات متقدمة'],
+      pt: ['150.000 tokens/mês', 'GPT-4, Claude e Gemini', 'Processamento prioritário', 'Histórico ilimitado', 'API completa', 'Suporte 24/7', 'Agentes ×3', 'Análises avançadas'],
     },
   },
   {
     id: 'business', name: 'Business', priceEUR: 250, icon: '⬡', accent: '#3a8ee0',
     desc: { fr: "Pour les équipes qui construisent l'avenir", en: 'For teams building the future', es: 'Para equipos que construyen el futuro', ar: 'للفرق التي تبني المستقبل', pt: 'Para equipes que constroem o futuro' },
     features: {
-      fr: ['500 000 jetons IA / mois', 'Tous les modèles IA', 'Collaboration en équipe (×5)', 'Réglage fin de modèles personnalisés', 'Intégrations webhook', 'Canal de support dédié', 'Agents personnalisés (×10)', 'Tableau de bord analytique en temps réel', 'Garantie SLA 99,5%'],
-      en: ['500,000 AI tokens/month', 'All AI models access', 'Team collaboration (5 seats)', 'Custom model fine-tuning', 'Webhook integrations', 'Dedicated support channel', 'Custom agents (10)', 'Real-time analytics dashboard', 'SLA guarantee 99.5%'],
-      es: ['500,000 tokens IA/mes', 'Acceso a todos los modelos IA', 'Colaboración en equipo (5 puestos)', 'Ajuste fino de modelos personalizados', 'Integraciones webhook', 'Canal de soporte dedicado', 'Agentes personalizados (10)', 'Panel de análisis en tiempo real', 'Garantía SLA 99.5%'],
-      ar: ['500,000 رمز ذكاء اصطناعي/شهر', 'الوصول إلى جميع نماذج الذكاء الاصطناعي', 'تعاون الفريق (5 مقاعد)', 'ضبط دقيق للنماذج المخصصة', 'تكاملات الويب هوك', 'قناة دعم مخصصة', 'وكلاء مخصصون (10)', 'لوحة تحليلات فورية', 'ضمان SLA 99.5%'],
-      pt: ['500.000 tokens de IA/mês', 'Acesso a todos os modelos de IA', 'Colaboração em equipe (5 vagas)', 'Ajuste fino de modelos personalizados', 'Integrações webhook', 'Canal de suporte dedicado', 'Agentes personalizados (10)', 'Painel de análises em tempo real', 'Garantia SLA 99.5%'],
+      fr: ['500 000 jetons IA / mois', 'Tous les modèles IA', 'Équipe ×5', 'Modèles personnalisés', 'Webhooks', 'Support dédié', 'Agents ×10', 'Analytics temps réel', 'SLA 99,5%'],
+      en: ['500,000 AI tokens/month', 'All AI models', 'Team ×5', 'Custom models', 'Webhooks', 'Dedicated support', 'Agents ×10', 'Real-time analytics', 'SLA 99.5%'],
+      es: ['500,000 tokens/mes', 'Todos los modelos', 'Equipo ×5', 'Modelos personalizados', 'Webhooks', 'Soporte dedicado', 'Agentes ×10', 'Analytics en tiempo real', 'SLA 99.5%'],
+      ar: ['500,000 رمز/شهر', 'جميع النماذج', 'فريق ×5', 'نماذج مخصصة', 'ويب هوك', 'دعم مخصص', 'وكلاء ×10', 'تحليلات فورية', 'SLA 99.5%'],
+      pt: ['500.000 tokens/mês', 'Todos os modelos', 'Equipe ×5', 'Modelos personalizados', 'Webhooks', 'Suporte dedicado', 'Agentes ×10', 'Analytics em tempo real', 'SLA 99.5%'],
     },
   },
   {
     id: 'empire', name: 'Empire', priceEUR: 300, icon: '♛', accent: gold,
     desc: { fr: 'Puissance illimitée pour les visionnaires', en: 'Unlimited power for visionaries', es: 'Poder ilimitado para visionarios', ar: 'قوة غير محدودة للرؤيويين', pt: 'Poder ilimitado para visionários' },
     features: {
-      fr: ['Jetons IA illimités', 'Tous les modèles + accès anticipé', 'Sièges d\'équipe illimités', 'Solution marque blanche', 'Entraînement de modèle personnalisé', 'Déploiement sur site disponible', 'Agents personnalisés illimités', 'Suite analytique entreprise', 'Garantie SLA 99,9%'],
-      en: ['Unlimited AI tokens', 'All models + early access', 'Unlimited team seats', 'White-label solution', 'Custom model training', 'On-premise deployment option', 'Unlimited custom agents', 'Enterprise analytics suite', 'SLA guarantee 99.9%'],
-      es: ['Tokens IA ilimitados', 'Todos los modelos + acceso anticipado', 'Puestos de equipo ilimitados', 'Solución de marca blanca', 'Entrenamiento de modelo personalizado', 'Opción de implementación on-premise', 'Agentes personalizados ilimitados', 'Suite de análisis empresarial', 'Garantía SLA 99.9%'],
-      ar: ['رموز ذكاء اصطناعي غير محدودة', 'جميع النماذج + وصول مبكر', 'مقاعد فريق غير محدودة', 'حل العلامة البيضاء', 'تدريب نموذج مخصص', 'خيار النشر داخل الموقع', 'وكلاء مخصصون غير محدودين', 'مجموعة تحليلات للمؤسسات', 'ضمان SLA 99.9%'],
-      pt: ['Tokens de IA ilimitados', 'Todos os modelos + acesso antecipado', 'Vagas de equipe ilimitadas', 'Solução white-label', 'Treinamento de modelo personalizado', 'Opção de implantação on-premise', 'Agentes personalizados ilimitados', 'Suíte de análises empresarial', 'Garantia SLA 99.9%'],
+      fr: ['Jetons illimités', 'Tous modèles + accès anticipé', 'Équipe illimitée', 'Marque blanche', 'Entraînement IA', 'Déploiement sur site', 'Agents illimités', 'Suite entreprise', 'SLA 99,9%'],
+      en: ['Unlimited tokens', 'All models + early access', 'Unlimited team', 'White-label', 'AI training', 'On-premise option', 'Unlimited agents', 'Enterprise suite', 'SLA 99.9%'],
+      es: ['Tokens ilimitados', 'Todos + acceso anticipado', 'Equipo ilimitado', 'Marca blanca', 'Entrenamiento IA', 'On-premise', 'Agentes ilimitados', 'Suite empresarial', 'SLA 99.9%'],
+      ar: ['رموز غير محدودة', 'الكل + وصول مبكر', 'فريق غير محدود', 'علامة بيضاء', 'تدريب ذكاء اصطناعي', 'نشر محلي', 'وكلاء غير محدودين', 'مجموعة مؤسسية', 'SLA 99.9%'],
+      pt: ['Tokens ilimitados', 'Todos + acesso antecipado', 'Equipe ilimitada', 'White-label', 'Treinamento IA', 'On-premise', 'Agentes ilimitados', 'Suite empresarial', 'SLA 99.9%'],
     },
   },
 ];
 
 const PRICE_LABELS: Record<string, Record<Lang, string>> = {
-  free: { fr: 'Commencer gratuitement', en: 'Start for Free', es: 'Empezar gratis', ar: 'ابدأ مجانًا', pt: 'Começar gratuitamente' },
-  starter: { fr: 'Choisir Starter', en: 'Choose Starter', es: 'Elegir Starter', ar: 'اختر Starter', pt: 'Escolher Starter' },
-  pro: { fr: 'Choisir Pro', en: 'Choose Pro', es: 'Elegir Pro', ar: 'اختر Pro', pt: 'Escolher Pro' },
-  business: { fr: 'Choisir Business', en: 'Choose Business', es: 'Elegir Business', ar: 'اختر Business', pt: 'Escolher Business' },
-  empire: { fr: 'Réclamer Empire', en: 'Claim Your Empire', es: 'Reclamar tu Empire', ar: 'احصل على Empire', pt: 'Reivindicar Empire' },
+  free:     { fr: 'Commencer gratuitement', en: 'Start for Free',     es: 'Empezar gratis',      ar: 'ابدأ مجانًا',         pt: 'Começar gratuitamente' },
+  starter:  { fr: 'Choisir Starter',        en: 'Choose Starter',     es: 'Elegir Starter',      ar: 'اختر Starter',        pt: 'Escolher Starter' },
+  pro:      { fr: 'Choisir Pro',            en: 'Choose Pro',         es: 'Elegir Pro',          ar: 'اختر Pro',            pt: 'Escolher Pro' },
+  business: { fr: 'Choisir Business',       en: 'Choose Business',    es: 'Elegir Business',     ar: 'اختر Business',       pt: 'Escolher Business' },
+  empire:   { fr: 'Réclamer Empire',        en: 'Claim Your Empire',  es: 'Reclamar tu Empire',  ar: 'احصل على Empire',     pt: 'Reivindicar Empire' },
 };
 
 const SERVERS = [
-  { city: 'Dakar', latency: '12ms', users: '1,250' },
-  { city: 'Paris', latency: '8ms', users: '4,820' },
+  { city: 'Dakar',    latency: '12ms', users: '1,250' },
+  { city: 'Paris',    latency: '8ms',  users: '4,820' },
   { city: 'New York', latency: '15ms', users: '7,340' },
 ];
 
@@ -216,52 +216,34 @@ export default function LandingPage() {
 
   const formatPrice = (eur: number) => `${Math.round(eur * RATES[currency])} ${SYMBOLS[currency]}`;
 
-  const nav = T.nav[lang];
-  const hero = T.hero[lang];
-  const feat = T.featuresSection[lang];
+  const nav     = T.nav[lang];
+  const hero    = T.hero[lang];
+  const feat    = T.featuresSection[lang];
   const pricing = T.pricingSection[lang];
   const network = T.networkSection[lang];
   const contact = T.contactSection[lang];
-  const foot = T.footer[lang];
+  const foot    = T.footer[lang];
 
   return (
     <div dir={dir} style={{ background: '#0B0F19', minHeight: '100vh', color: '#fff', fontFamily: 'Georgia, serif' }}>
 
       {/* NAVBAR */}
-      <nav style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 24px', height: 60, flexWrap: 'wrap', gap: 8,
-        background: 'rgba(11,15,25,0.95)', borderBottom: '1px solid #1a1a2e',
-        backdropFilter: 'blur(10px)',
-      }}>
+      <nav style={{ position: 'sticky', top: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px', height: 60, flexWrap: 'wrap', gap: 8, background: 'rgba(11,15,25,0.95)', borderBottom: '1px solid #1a1a2e', backdropFilter: 'blur(10px)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ fontSize: 22, color: gold }}>✦</span>
           <span style={{ fontWeight: 700, fontSize: 20, color: gold, letterSpacing: 3 }}>AURA</span>
         </div>
-
         <div style={{ display: 'flex', gap: 20, fontSize: 13, color: '#888', flexWrap: 'wrap' }}>
           <a href="#features" style={{ color: '#888', textDecoration: 'none' }}>{nav.features}</a>
-          <a href="#pricing" style={{ color: '#888', textDecoration: 'none' }}>{nav.pricing}</a>
-          <a href="#network" style={{ color: '#888', textDecoration: 'none' }}>{nav.network}</a>
-          <a href="#contact" style={{ color: '#888', textDecoration: 'none' }}>{nav.contact}</a>
+          <a href="#pricing"  style={{ color: '#888', textDecoration: 'none' }}>{nav.pricing}</a>
+          <a href="#network"  style={{ color: '#888', textDecoration: 'none' }}>{nav.network}</a>
+          <a href="#contact"  style={{ color: '#888', textDecoration: 'none' }}>{nav.contact}</a>
         </div>
-
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <select
-            value={lang}
-            onChange={e => setLang(e.target.value as Lang)}
-            style={{ background: '#111', color: '#fff', border: '1px solid #333', borderRadius: 6, padding: '4px 6px', fontSize: 12, cursor: 'pointer' }}
-          >
-            {(Object.keys(LANG_LABELS) as Lang[]).map(l => (
-              <option key={l} value={l}>{LANG_LABELS[l]}</option>
-            ))}
+          <select value={lang} onChange={e => setLang(e.target.value as Lang)} style={{ background: '#111', color: '#fff', border: '1px solid #333', borderRadius: 6, padding: '4px 6px', fontSize: 12, cursor: 'pointer' }}>
+            {(Object.keys(LANG_LABELS) as Lang[]).map(l => <option key={l} value={l}>{LANG_LABELS[l]}</option>)}
           </select>
-          <select
-            value={currency}
-            onChange={e => setCurrency(e.target.value as Currency)}
-            style={{ background: '#111', color: gold, border: `1px solid ${gold}`, borderRadius: 6, padding: '4px 8px', fontSize: 12, cursor: 'pointer' }}
-          >
+          <select value={currency} onChange={e => setCurrency(e.target.value as Currency)} style={{ background: '#111', color: gold, border: `1px solid ${gold}`, borderRadius: 6, padding: '4px 8px', fontSize: 12, cursor: 'pointer' }}>
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
             <option value="FCFA">FCFA</option>
@@ -273,24 +255,18 @@ export default function LandingPage() {
 
       {/* HERO */}
       <section style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '60px 24px' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 16px', borderRadius: 20, border: `1px solid ${gold}`, background: 'rgba(212,175,55,0.08)', fontSize: 12, color: gold, marginBottom: 40 }}>
-          {hero.badge}
-        </div>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 16px', borderRadius: 20, border: `1px solid ${gold}`, background: 'rgba(212,175,55,0.08)', fontSize: 12, color: gold, marginBottom: 40 }}>{hero.badge}</div>
         <h1 style={{ fontSize: 52, fontWeight: 700, margin: '0 0 16px', lineHeight: 1.1 }}>{hero.title}</h1>
         <div style={{ background: gold, padding: '10px 40px', borderRadius: 4, marginBottom: 32 }}>
           <span style={{ fontSize: 42, fontWeight: 700, color: '#7a5c00', fontStyle: 'italic' }}>{hero.highlight}</span>
         </div>
         <p style={{ fontSize: 16, color: '#888', maxWidth: 520, lineHeight: 1.8, margin: '0 0 40px' }}>{hero.desc}</p>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 80, flexWrap: 'wrap', justifyContent: 'center' }}>
-          <button onClick={() => router.push('/login')} style={{ padding: '12px 28px', borderRadius: 8, background: gold, color: '#000', border: 'none', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>{hero.trial}</button>
+          <button onClick={() => router.push('/payment?plan=free')} style={{ padding: '12px 28px', borderRadius: 8, background: gold, color: '#000', border: 'none', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>{hero.trial}</button>
           <a href="#features" style={{ padding: '12px 28px', borderRadius: 8, border: '1px solid #333', color: '#fff', fontSize: 14, textDecoration: 'none' }}>{hero.explore}</a>
         </div>
         <div style={{ display: 'flex', gap: 60, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {[
-            { icon: '⚡', value: '99.9%', label: hero.sla },
-            { icon: '🛡️', value: '100%', label: hero.secure },
-            { icon: '🌐', value: '3', label: hero.servers },
-          ].map(s => (
+          {[{ icon: '⚡', value: '99.9%', label: hero.sla }, { icon: '🛡️', value: '100%', label: hero.secure }, { icon: '🌐', value: '3', label: hero.servers }].map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 24, marginBottom: 6, color: gold }}>{s.icon}</div>
               <div style={{ fontSize: 28, fontWeight: 700, color: gold }}>{s.value}</div>
@@ -320,42 +296,34 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ padding: '80px 24px', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
+      <section id="pricing" style={{ padding: '80px 24px', maxWidth: 1300, margin: '0 auto', textAlign: 'center' }}>
         <div style={{ display: 'inline-block', fontSize: 11, color: gold, border: `1px solid ${gold}55`, borderRadius: 20, padding: '4px 14px', marginBottom: 16, letterSpacing: 1 }}>{pricing.badge}</div>
         <h2 style={{ fontSize: 32, color: '#fff', margin: '0 0 8px' }}>{pricing.title}</h2>
         <p style={{ color: '#666', maxWidth: 560, margin: '0 auto 48px', fontSize: 14, lineHeight: 1.7 }}>{pricing.desc}</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
           {PLANS.map(plan => (
-            <div key={plan.id} style={{
-              flex: '1 1 200px', maxWidth: 230, background: '#0f1420',
-              border: `1px solid ${plan.highlight ? gold : '#1a1a2e'}`,
-              borderTop: `3px solid ${plan.accent}`,
-              borderRadius: 16, padding: '24px 20px',
-              display: 'flex', flexDirection: 'column', gap: 14,
-              textAlign: lang === 'ar' ? 'right' : 'left',
-              boxShadow: plan.highlight ? `0 0 24px ${gold}22` : 'none',
-            }}>
+            <div key={plan.id} style={{ flex: '1 1 190px', maxWidth: 220, background: '#0f1420', border: `1px solid ${plan.highlight ? gold : '#1a1a2e'}`, borderTop: `3px solid ${plan.accent}`, borderRadius: 16, padding: '24px 16px', display: 'flex', flexDirection: 'column', gap: 14, textAlign: lang === 'ar' ? 'right' : 'left', boxShadow: plan.highlight ? `0 0 24px ${gold}22` : 'none' }}>
               <div style={{ width: 36, height: 36, borderRadius: 8, background: `${plan.accent}22`, color: plan.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16 }}>{plan.icon}</div>
               <div style={{ fontSize: 16, fontWeight: 700, color: '#fff' }}>{plan.name}</div>
-              <div style={{ fontSize: 12, color: '#666', minHeight: 36 }}>{plan.desc[lang]}</div>
+              <div style={{ fontSize: 11, color: '#666', minHeight: 32 }}>{plan.desc[lang]}</div>
               <div>
-                <span style={{ fontSize: 30, fontWeight: 700, color: '#fff' }}>{formatPrice(plan.priceEUR)}</span>
-                <span style={{ fontSize: 12, color: '#666' }}>{pricing.month}</span>
+                <span style={{ fontSize: 28, fontWeight: 700, color: '#fff' }}>{formatPrice(plan.priceEUR)}</span>
+                <span style={{ fontSize: 11, color: '#666' }}>{pricing.month}</span>
               </div>
-              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
                 {plan.features[lang].map(f => (
-                  <li key={f} style={{ fontSize: 12, color: '#999', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                  <li key={f} style={{ fontSize: 11, color: '#999', display: 'flex', gap: 7, alignItems: 'flex-start' }}>
                     <span style={{ color: plan.accent }}>●</span> {f}
                   </li>
                 ))}
               </ul>
-              <button onClick={() => router.push('/login')} style={{
-                marginTop: 'auto', padding: '10px',
-                borderRadius: 8, border: 'none',
-                background: plan.highlight || plan.id === 'empire' ? gold : '#1a1a2e',
-                color: plan.highlight || plan.id === 'empire' ? '#000' : '#fff',
-                fontSize: 13, fontWeight: 700, cursor: 'pointer',
-              }}>{PRICE_LABELS[plan.id][lang]}</button>
+              {/* ✅ ICI : redirection vers /payment?plan=... */}
+              <button
+                onClick={() => router.push(`/payment?plan=${plan.id}`)}
+                style={{ marginTop: 'auto', padding: '10px', borderRadius: 8, border: 'none', background: plan.highlight || plan.id === 'empire' ? gold : '#1a1a2e', color: plan.highlight || plan.id === 'empire' ? '#000' : '#fff', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
+              >
+                {PRICE_LABELS[plan.id][lang]}
+              </button>
             </div>
           ))}
         </div>
@@ -366,9 +334,7 @@ export default function LandingPage() {
         <div style={{ display: 'inline-block', fontSize: 11, color: gold, border: `1px solid ${gold}55`, borderRadius: 20, padding: '4px 14px', marginBottom: 16, letterSpacing: 1 }}>{network.badge}</div>
         <h2 style={{ fontSize: 32, color: '#fff', margin: '0 0 8px' }}>{network.title}</h2>
         <p style={{ color: '#666', maxWidth: 560, margin: '0 auto 32px', fontSize: 14, lineHeight: 1.7 }}>{network.desc}</p>
-        <div style={{ background: '#0f1420', border: '1px solid #1a1a2e', borderRadius: 12, padding: '40px 20px', marginBottom: 16, color: '#333', fontSize: 13 }}>
-          🌍 World map
-        </div>
+        <div style={{ background: '#0f1420', border: '1px solid #1a1a2e', borderRadius: 12, padding: '40px 20px', marginBottom: 16, color: '#333', fontSize: 13 }}>🌍 World map</div>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           {SERVERS.map(s => (
             <div key={s.city} style={{ background: '#0f1420', border: '1px solid #1a1a2e', borderRadius: 10, padding: '12px 24px', textAlign: 'left', minWidth: 140 }}>
@@ -438,8 +404,8 @@ export default function LandingPage() {
             <h4 style={{ fontSize: 13, color: '#fff', marginBottom: 12 }}>{foot.product}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 12, color: '#666' }}>
               <a href="#features" style={{ color: '#666', textDecoration: 'none' }}>{nav.features}</a>
-              <a href="#pricing" style={{ color: '#666', textDecoration: 'none' }}>{nav.pricing}</a>
-              <a href="#network" style={{ color: '#666', textDecoration: 'none' }}>{nav.network}</a>
+              <a href="#pricing"  style={{ color: '#666', textDecoration: 'none' }}>{nav.pricing}</a>
+              <a href="#network"  style={{ color: '#666', textDecoration: 'none' }}>{nav.network}</a>
             </div>
           </div>
           <div style={{ flex: '1 1 140px' }}>
@@ -463,6 +429,7 @@ export default function LandingPage() {
           <span>{foot.made}</span>
         </div>
       </footer>
+
     </div>
   );
          }
