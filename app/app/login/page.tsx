@@ -1,252 +1,119 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-type Currency = 'EUR' | 'USD' | 'FCFA';
+const gold = '#D4AF37';
 
-const RATES: Record<Currency, number> = { EUR: 1, USD: 1.3, FCFA: 650 };
-const SYMBOLS: Record<Currency, string> = { EUR: '€', USD: '$', FCFA: 'FCFA' };
-
-const PLANS = [
-  {
-    id: 'free', name: 'FREE', priceEUR: 0,
-    description: 'Idéal pour le premier essai',
-    features: ['1 modèle (ChatGPT Standard)', '5 messages / jour', 'Vitesse standard'],
-    highlight: false,
-  },
-  {
-    id: 'classic', name: 'CLASSIC', priceEUR: 20,
-    description: 'Pour une utilisation personnelle régulière',
-    features: ['3 modèles (GPT, Gemini, Claude)', '100 messages / jour', 'Streaming normal'],
-    highlight: false,
-  },
-  {
-    id: 'basic', name: 'BASIC', priceEUR: 35,
-    description: 'Pour étudiants et créateurs',
-    features: ['15 modèles intermédiaires', '300 messages / jour', 'Import de fichiers texte'],
-    highlight: false,
-  },
-  {
-    id: 'premium', name: 'PREMIUM', priceEUR: 50,
-    description: 'Pour une utilisation professionnelle intensive',
-    features: ['30 modèles spécialisés', 'Messages illimités', 'Vision & documents lourds', 'Streaming prioritaire'],
-    highlight: true,
-  },
-  {
-    id: 'vip', name: 'PREMIUM VIP', priceEUR: 100,
-    description: "L'expérience ultime d'AURA",
-    features: ['30 modèles + contexte maximal', 'Hyper-Streaming dédié', 'Exécution de scripts', 'Support VIP 24/7', 'Accès bêta exclusif'],
-    highlight: false,
-  },
-];
-
-export default function LandingPage() {
-  const [currency, setCurrency] = useState<Currency>('EUR');
+export default function LoginPage() {
   const router = useRouter();
-  const gold = '#D4AF37';
+  const [loading, setLoading] = useState<string | null>(null);
 
-  const formatPrice = (eur: number) => {
-    const price = Math.round(eur * RATES[currency]);
-    return `${price} ${SYMBOLS[currency]}`;
+  const handleLogin = (provider: string) => {
+    setLoading(provider);
+    setTimeout(() => {
+      router.push('/chat');
+    }, 1500);
   };
 
   return (
-    <div style={{ background: '#0B0F19', minHeight: '100vh', color: '#fff', fontFamily: 'Georgia, serif' }}>
+    <div style={{ minHeight: '100vh', background: '#0B0F19', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, sans-serif', padding: '24px' }}>
 
-      {/* NAVBAR */}
-      <nav style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 24px', height: 60,
-        background: 'rgba(11,15,25,0.95)', borderBottom: '1px solid #1a1a2e',
-        backdropFilter: 'blur(10px)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 22, color: gold }}>✦</span>
-          <span style={{ fontWeight: 700, fontSize: 20, color: gold, letterSpacing: 3 }}>AURA</span>
-        </div>
-        <div style={{ display: 'flex', gap: 24, fontSize: 13, color: '#888' }}>
-          {['Fonctionnalités', 'Tarifs', 'Réseau mondial', 'Contact'].map(item => (
-            <a key={item} href={`#${item.toLowerCase()}`}
-              style={{ color: '#888', textDecoration: 'none' }}
-              onMouseOver={e => (e.currentTarget.style.color = gold)}
-              onMouseOut={e => (e.currentTarget.style.color = '#888')}
-            >{item}</a>
-          ))}
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <select
-            value={currency}
-            onChange={e => setCurrency(e.target.value as Currency)}
-            style={{
-              background: '#111', color: gold, border: `1px solid ${gold}`,
-              borderRadius: 6, padding: '4px 8px', fontSize: 12, cursor: 'pointer',
-            }}
-          >
-            <option value="EUR">🇪🇺 EUR</option>
-            <option value="USD">🇺🇸 USD</option>
-            <option value="FCFA">🌍 FCFA</option>
-          </select>
-          <button onClick={() => router.push('/login')} style={{
-            padding: '8px 18px', borderRadius: 8,
-            background: gold, color: '#000',
-            border: 'none', fontWeight: 700, fontSize: 13, cursor: 'pointer',
-          }}>Se connecter</button>
-        </div>
-      </nav>
+      {/* Logo */}
+      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <div style={{ fontSize: 44, color: gold }}>✦</div>
+        <h1 style={{ fontSize: 28, fontWeight: 700, color: gold, letterSpacing: 4, margin: '8px 0 0' }}>AURA</h1>
+        <p style={{ color: '#555', fontSize: 13, marginTop: 8 }}>Connectez-vous pour accéder à l'expérience IA Premium</p>
+      </div>
 
-      {/* HERO */}
-      <section style={{
-        minHeight: '90vh', display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center',
-        textAlign: 'center', padding: '60px 24px',
-      }}>
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 6,
-          padding: '6px 16px', borderRadius: 20,
-          border: `1px solid ${gold}`, background: 'rgba(212,175,55,0.08)',
-          fontSize: 12, color: gold, marginBottom: 40,
+      {/* Card */}
+      <div style={{ width: '100%', maxWidth: 380, background: '#0f1420', border: `1px solid ${gold}33`, borderRadius: 20, padding: '36px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <h2 style={{ textAlign: 'center', fontSize: 16, color: '#fff', margin: '0 0 8px', fontWeight: 500 }}>Choisissez votre méthode de connexion</h2>
+
+        {/* Google */}
+        <button onClick={() => handleLogin('google')} disabled={loading !== null} style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
+          padding: '14px 20px', borderRadius: 12,
+          border: `1px solid ${loading === 'google' ? '#4285F4' : '#222'}`,
+          background: loading === 'google' ? 'rgba(66,133,244,0.1)' : '#111',
+          color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer',
+          opacity: loading && loading !== 'google' ? 0.4 : 1,
         }}>
-          ✦ Expérience IA Premium
-        </div>
+          {loading === 'google' ? <span style={{ color: '#4285F4' }}>Connexion en cours...</span> : (
+            <>
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              Continuer avec Google
+            </>
+          )}
+        </button>
 
-        <h1 style={{ fontSize: 56, fontWeight: 700, margin: '0 0 16px', lineHeight: 1.1 }}>
-          L'avenir de l'IA
-        </h1>
-
-        <div style={{
-          background: gold, padding: '10px 40px',
-          borderRadius: 4, marginBottom: 32,
+        {/* GitHub */}
+        <button onClick={() => handleLogin('github')} disabled={loading !== null} style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
+          padding: '14px 20px', borderRadius: 12,
+          border: `1px solid ${loading === 'github' ? '#fff' : '#222'}`,
+          background: loading === 'github' ? 'rgba(255,255,255,0.05)' : '#111',
+          color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer',
+          opacity: loading && loading !== 'github' ? 0.4 : 1,
         }}>
-          <span style={{ fontSize: 48, fontWeight: 700, color: '#7a5c00', fontStyle: 'italic' }}>
-            Est-ce ici ?
-          </span>
+          {loading === 'github' ? <span style={{ color: '#fff' }}>Connexion en cours...</span> : (
+            <>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              Continuer avec GitHub
+            </>
+          )}
+        </button>
+
+        {/* Apple */}
+        <button onClick={() => handleLogin('apple')} disabled={loading !== null} style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
+          padding: '14px 20px', borderRadius: 12,
+          border: `1px solid ${loading === 'apple' ? '#fff' : '#222'}`,
+          background: loading === 'apple' ? 'rgba(255,255,255,0.05)' : '#111',
+          color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer',
+          opacity: loading && loading !== 'apple' ? 0.4 : 1,
+        }}>
+          {loading === 'apple' ? <span>Connexion en cours...</span> : (
+            <>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              Continuer avec Apple
+            </>
+          )}
+        </button>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '4px 0' }}>
+          <div style={{ flex: 1, height: 1, background: '#1a1a2e' }} />
+          <span style={{ color: '#444', fontSize: 12 }}>ou</span>
+          <div style={{ flex: 1, height: 1, background: '#1a1a2e' }} />
         </div>
 
-        <p style={{ fontSize: 16, color: '#888', maxWidth: 480, lineHeight: 1.8, margin: '0 0 40px' }}>
-          Découvrez GPT-4, Claude et Gemini au sein d'une interface élégante.
-          AURA offre des capacités d'IA de pointe d'une sophistication inégalée.
+        {/* Essai gratuit */}
+        <button onClick={() => router.push('/payment?plan=free')} style={{
+          padding: '14px 20px', borderRadius: 12,
+          border: `1px solid ${gold}`,
+          background: 'transparent', color: gold,
+          fontSize: 14, fontWeight: 600, cursor: 'pointer',
+        }}>
+          ✦ Commencer l'essai gratuit
+        </button>
+
+        <p style={{ textAlign: 'center', color: '#333', fontSize: 11, margin: 0 }}>
+          En continuant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.
         </p>
+      </div>
 
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 80 }}>
-          <button onClick={() => router.push('/login')} style={{
-            padding: '12px 28px', borderRadius: 8,
-            border: `1px solid ${gold}`, color: gold,
-            background: 'transparent', fontSize: 14, fontWeight: 600, cursor: 'pointer',
-          }}>Essai gratuit →</button>
-          <a href="#tarifs" style={{ fontSize: 14, color: '#888', textDecoration: 'none' }}>
-            Explorez les fonctionnalités
-          </a>
-        </div>
-
-        <div style={{ display: 'flex', gap: 60 }}>
-          {[
-            { icon: '⚡', value: '99,9%', label: 'SLA de disponibilité' },
-            { icon: '🛡️', value: '100%', label: 'Sécurisé' },
-            { icon: '🌐', value: '3', label: 'Serveurs mondiaux' },
-          ].map(s => (
-            <div key={s.label} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 28, marginBottom: 6 }}>{s.icon}</div>
-              <div style={{ fontSize: 32, fontWeight: 700, color: gold }}>{s.value}</div>
-              <div style={{ fontSize: 12, color: '#555', marginTop: 4 }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TARIFS */}
-      <section id="tarifs" style={{ padding: '80px 24px', maxWidth: 1100, margin: '0 auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: 36, color: gold, marginBottom: 8 }}>Nos Tarifs</h2>
-        <p style={{ textAlign: 'center', color: '#666', marginBottom: 48 }}>Choisissez le plan qui vous correspond</p>
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {PLANS.map(plan => (
-            <div key={plan.id} style={{
-              flex: '1 1 180px', maxWidth: 200,
-              background: '#0f1420',
-              border: `1px solid ${plan.highlight ? gold : '#1a1a2e'}`,
-              borderRadius: 16, padding: '24px 16px',
-              display: 'flex', flexDirection: 'column', gap: 12,
-              boxShadow: plan.highlight ? `0 0 24px ${gold}33` : 'none',
-              position: 'relative',
-            }}>
-              {plan.highlight && (
-                <div style={{
-                  position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
-                  background: gold, color: '#000', fontSize: 10, fontWeight: 700,
-                  padding: '3px 12px', borderRadius: 20, whiteSpace: 'nowrap',
-                }}>⭐ POPULAIRE</div>
-              )}
-              <div style={{ fontSize: 13, fontWeight: 700, color: gold, letterSpacing: 2 }}>{plan.name}</div>
-              <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>{formatPrice(plan.priceEUR)}</div>
-              <div style={{ fontSize: 11, color: '#555' }}>{plan.description}</div>
-              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6 }}>
-                {plan.features.map(f => (
-                  <li key={f} style={{ fontSize: 11, color: '#888', display: 'flex', gap: 6, alignItems: 'flex-start' }}>
-                    <span style={{ color: gold }}>✓</span> {f}
-                  </li>
-                ))}
-              </ul>
-              <button onClick={() => router.push('/login')} style={{
-                marginTop: 'auto', padding: '10px',
-                borderRadius: 8, border: `1px solid ${plan.highlight ? gold : '#333'}`,
-                background: plan.highlight ? gold : 'transparent',
-                color: plan.highlight ? '#000' : gold,
-                fontSize: 12, fontWeight: 700, cursor: 'pointer',
-              }}>
-                {plan.priceEUR === 0 ? 'Commencer' : 'Choisir ce plan'}
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CONNEXION */}
-      <section style={{
-        padding: '80px 24px', textAlign: 'center',
-        borderTop: '1px solid #1a1a2e',
-      }}>
-        <h2 style={{ fontSize: 32, color: gold, marginBottom: 8 }}>Connexion sécurisée</h2>
-        <p style={{ color: '#666', marginBottom: 40 }}>Authentifiez-vous avec votre compte existant</p>
-        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-          {[
-            { label: 'Continuer avec Google', icon: '🔵' },
-            { label: 'Continuer avec GitHub', icon: '⚫' },
-          ].map(btn => (
-            <button key={btn.label} onClick={() => router.push('/login')} style={{
-              padding: '12px 24px', borderRadius: 10,
-              border: '1px solid #333', background: '#111',
-              color: '#fff', fontSize: 14, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: 10,
-            }}>
-              <span>{btn.icon}</span> {btn.label}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* PAIEMENT */}
-      <section style={{ padding: '60px 24px', textAlign: 'center', borderTop: '1px solid #1a1a2e' }}>
-        <p style={{ color: '#555', fontSize: 13, marginBottom: 20 }}>Moyens de paiement acceptés</p>
-        <div style={{ display: 'flex', gap: 24, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-          {['PayPal', 'Orange Money', 'Wave'].map(p => (
-            <div key={p} style={{
-              padding: '8px 20px', borderRadius: 8,
-              border: `1px solid ${gold}33`, background: '#111',
-              color: '#888', fontSize: 13,
-            }}>{p}</div>
-          ))}
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{
-        padding: '24px', textAlign: 'center',
-        borderTop: '1px solid #1a1a2e', color: '#333', fontSize: 12,
-      }}>
-        © 2025 AURA — Tous droits réservés
-      </footer>
-
+      <button onClick={() => router.push('/')} style={{ marginTop: 24, background: 'none', border: 'none', color: '#444', fontSize: 13, cursor: 'pointer' }}>
+        ← Retour à l'accueil
+      </button>
     </div>
   );
-  }
+                  }
